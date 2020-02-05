@@ -8,13 +8,10 @@ import * as firabase from 'firebase'
 })
 export class AutenticacaoService {
 
-  public cadastrarUsuario(usuario: Usuario): void {
-    //console.log('Chegamos até aqui', usuario)
-
-    
-    
+  public cadastrarUsuario(usuario: Usuario): Promise<any> {
+  
     // cadastrando dados complementares do usuário no path na base 64
-    firabase.auth().createUserWithEmailAndPassword(usuario.email, usuario.senha)
+    return firabase.auth().createUserWithEmailAndPassword(usuario.email, usuario.senha)
       .then((res: any) => {
         
         //remover a senha
