@@ -11,6 +11,8 @@ import { AutenticacaoService } from "src/app/autenticacao.service";
 export class LoginComponent implements OnInit {
   @Output() exibirPainel: EventEmitter<string> = new EventEmitter<string>();
 
+  erroMessage: string
+
   formulario: FormGroup = new FormGroup({
     email: new FormControl(null),
     senha: new FormControl(null)
@@ -24,10 +26,13 @@ export class LoginComponent implements OnInit {
     this.exibirPainel.emit("cadastro");
   }
 
-  auth(): void {
+  auth() {
     this.autenticacao.autenticar(
       this.formulario.value.email,
       this.formulario.value.senha
-    );
+    ).then(() => {
+      this.erroMessage = this.autenticacao.message
+    })
+    
   }
 }
