@@ -5,7 +5,7 @@ import { error } from 'protractor';
 @Injectable({
   providedIn: 'root'
 })
-export class BdService {
+export class DbService {
   publicar(publicacao: any): void {
     
     console.log(publicacao)
