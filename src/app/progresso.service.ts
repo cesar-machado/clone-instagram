@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProgressoService {
+  status: string;
+  estado: any
+
 
   constructor() { }
 }
